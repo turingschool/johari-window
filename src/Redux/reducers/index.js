@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
-import * as types from '../actions/types'
+import * as types from '../types'
 
 
 const user = (state={}, action) => {

@@ -1,20 +1,20 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { Route } from 'react-router-dom';
-import './app.css';
+import React from 'react'
+import { render } from 'react-dom'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
-import createHistory from 'history/createBrowserHistory'
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux'
+import createHistory from 'history/createBrowserHistory'
 import thunk from 'redux-thunk'
-import AuthService from './utils/AuthService';
-import App from './App/AppContainer';
+
+import App from './Components/App/AppContainer'
+import reducers from './Redux/reducers'
+import './app.css'
+import './_shared.sass'
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-import reducers from './reducers'
-
 const history = createHistory()
 const middleware = routerMiddleware(history)
+
 export const store = createStore(
   reducers, devTools,
   applyMiddleware(thunk, middleware)
@@ -27,4 +27,4 @@ render(
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root')
-);
+)

@@ -1,12 +1,10 @@
 import React, { Component, PropTypes as T } from 'react';
 import { Link } from 'react-router-dom';
-import AuthService from '../../utils/AuthService';
 import './_sidebar.sass';
 
 class Sidebar extends Component {
   static propTypes = {
     location: T.object,
-    auth: T.instanceOf(AuthService)
   }
 
   render() {

@@ -1,8 +1,8 @@
 import Auth0Lock from 'auth0-lock'
 import { EventEmitter } from 'events'
-import { store } from '../index.js'
-import * as actions from '../actions'
+import { store } from '../../index.js'
 import { push } from 'react-router-redux'
+import * as actions from '../../Redux/actions'
 
 export default class AuthService extends EventEmitter {
   constructor(clientId, domain) {

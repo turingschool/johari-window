@@ -1,6 +1,5 @@
 import React, { PropTypes as T } from 'react';
-import { withRouter, Redirect } from 'react-router-dom';
-import AuthService from '../utils/AuthService';
+import AuthService from '../../Helpers/utils/AuthService';
 import './Login.css'
 
 export class Login extends React.Component {
@@ -10,11 +9,6 @@ export class Login extends React.Component {
   }
 
   render() {
-    // if (this.props.user.name) {
-    //   return (
-    //     <Redirect push to='/' />
-    //   )
-    // }
 
     return (
       <div className='Login'>

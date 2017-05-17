@@ -1,20 +1,18 @@
-import React, { Component } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
-import Axios from 'axios';
-import User from '../User/User';
-import { PrivateRoute } from '../router'
-import Sidebar from './Sidebar/Sidebar';
-import Cohort from '../Cohort/CohortContainer';
-import Login from '../Login/LoginContainer';
-import Main from '../Main/MainContainer';
-import Johari from '../Johari/JohariContainer';
-import NoMatch from '../NoMatch/NoMatch';
-import MyWindow from '../MyWindow/MyWindowContainer';
-import Admin from '../Admin/AdminContainer';
-import "./_app.sass";
-import AuthService from '../utils/AuthService';
+import React, { Component } from 'react'
+import { Route, Switch } from 'react-router-dom'
+import { PrivateRoute } from '../../Helpers/router'
+import Sidebar from './Sidebar/Sidebar'
+import Cohort from '../Cohort/CohortContainer'
+import Login from '../Login/LoginContainer'
+import Main from '../Main/MainContainer'
+import Johari from '../Johari/JohariContainer'
+import NoMatch from '../NoMatch/NoMatch'
+import MyWindow from '../MyWindow/MyWindowContainer'
+import Admin from '../Admin/AdminContainer'
+import AuthService from '../../Helpers/utils/AuthService'
+import "./_app.sass"
 
-const auth = new AuthService('Uj8xsUj6Hvdmep3V9d2TOQJFqgLOSIym', 'turingschool.auth0.com');
+const auth = new AuthService('Uj8xsUj6Hvdmep3V9d2TOQJFqgLOSIym', 'turingschool.auth0.com')
 
 
 class App extends Component {
@@ -29,7 +27,7 @@ class App extends Component {
     return (
     <div>
       <div className='App'>
-        <Sidebar user={this.props.user} auth={auth}/>
+        <Sidebar user={this.props.user} />
       </div>
 
       <div className='Router'>
@@ -52,4 +50,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App
