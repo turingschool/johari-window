@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import AdjectiveList from './AdjectiveList';
-import Adjective from '../adjective/Adjective';
+import Adjective from './Adjective/Adjective';
 
 global.localStorage = {}
 

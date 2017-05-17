@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import AssigneeList from './AssigneeList';
-import Assignee from '../assignee/Assignee';
+import Assignee from './Assignee/Assignee';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 describe('AssigneeList', () => {

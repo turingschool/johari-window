@@ -18,3 +18,4 @@ export const PrivateRoute = ({ auth, component: Component, user, ...rest }) => (
     )}
   />
 );
+
