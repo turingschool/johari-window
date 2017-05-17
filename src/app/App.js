@@ -28,8 +28,7 @@ class App extends Component {
 
       <div className='Router'>
         <Switch>
-          <Route exact path='/' component={Main} />
-          {/* <PrivateRoute auth={auth} exact path='/' component={Main} /> */}
+          <PrivateRoute auth={auth} exact path='/' component={Main} />
           <Route
             path='/admin/cohort/:id'
             render={({match}) =>

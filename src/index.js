@@ -19,6 +19,7 @@ export const store = createStore(
   reducers, devTools,
   applyMiddleware(thunk, middleware)
 )
+
 render(
   <Provider store={store} >
     <ConnectedRouter history={history}>

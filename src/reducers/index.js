@@ -7,9 +7,8 @@ const user = (state={}, action) => {
   switch (action.type) {
     case types.ADD_USER:
       return { ...action.data };
-      break;
     default:
-      return {}
+      return state
   }
 }
 const assignees = (state=[], action) => {
@@ -17,7 +16,7 @@ const assignees = (state=[], action) => {
     case types.ADD_ASSIGNEES:
       return [ ...action.data ]
     default:
-      return []
+      return state
   }
 }
 
