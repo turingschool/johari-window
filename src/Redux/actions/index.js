@@ -20,9 +20,13 @@ export const fetchUser = (user_info) => {
   return (dispatch) => {
     Axios.post('https://johariwindowapi.herokuapp.com/api/v1/users', user_info)
     .then(result => {
-      const user = new User(result.data);
+      const user = new User(result.data)
       dispatch(addUser(user))
-      return user;
+      return user
     })
+    .then((user) =>
+      fetch(`https://johariwindowapi.herokuapp.com/api/v1/users/${user.id}/assignments`))
+      .then(result => result.json())
+      .then(data => dispatch(addAssignees(data)))
   }
 }
