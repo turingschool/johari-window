@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Axios from 'axios';
-import User from '../user/User';
+import User from '../User/User';
 import { PrivateRoute } from '../router'
 import Sidebar from './Sidebar/Sidebar';
-import Cohort from '../cohort/CohortContainer';
-import Login from '../login/LoginContainer';
-import Main from '../main/MainContainer';
-import Johari from '../johari/JohariContainer';
+import Cohort from '../Cohort/CohortContainer';
+import Login from '../Login/LoginContainer';
+import Main from '../Main/MainContainer';
+import Johari from '../Johari/JohariContainer';
 import NoMatch from '../NoMatch/NoMatch';
 import MyWindow from '../MyWindow/MyWindowContainer';
-import Admin from '../admin/AdminContainer';
+import Admin from '../Admin/AdminContainer';
 import "./_app.sass";
 import AuthService from '../utils/AuthService';
 

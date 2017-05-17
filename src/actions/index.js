@@ -1,5 +1,5 @@
 import * as types from './types'
-import User from '../user/User';
+import User from '../User/User';
 import Axios from 'axios';
 
 export const fetchUser = (user_info) => {
