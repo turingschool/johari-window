@@ -22,7 +22,7 @@ export default class AuthService extends EventEmitter {
     this.setProfile(authResult.idToken)
   }
 
-  setProfile(token=this.getToken(), callback) {
+  setProfile(token=this.getToken()) {
     if(!token) return
     this.lock.getProfile(token, (error, profile) => {
       if (error) {
@@ -35,15 +35,8 @@ export default class AuthService extends EventEmitter {
             "token": token
           }
         };
-        store.dispatch(actions.fetchUser(user_info))
         store.dispatch(push('/'))
-
-          // .then((user) => {
-          //   fetch(`https://johariwindowapi.herokuapp.com/api/v1/users/${user.id}/assignments`)
-          //   .then(result => result.json())
-          //   .then(data => store.dispatch({ type: 'ADD_ASSIGNEES', assignees: data}))
-          // })
-          // .catch(error => console.log(error))
+        store.dispatch(actions.fetchUser(user_info))
       }
     })
   }

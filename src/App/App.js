@@ -19,27 +19,27 @@ const auth = new AuthService('Uj8xsUj6Hvdmep3V9d2TOQJFqgLOSIym', 'turingschool.a
 
 class App extends Component {
 
+  componentWillMount() {
+    if (auth.loggedIn) {
+      auth.setProfile()
+    }
+  }
+
   render() {
     return (
     <div>
       <div className='App'>
-        <Sidebar user={this.props.user} auth={this.props.auth}/>
+        <Sidebar user={this.props.user} auth={auth}/>
       </div>
 
       <div className='Router'>
         <Switch>
           <PrivateRoute auth={auth} exact path='/' component={Main} />
-          <Route
-            path='/admin/cohort/:id'
-            render={({match}) =>
-              <Cohort cohortID={match.params.id} />
-            }
+          <Route path='/admin/cohort/:id'
+            render={({match}) => <Cohort cohortID={match.params.id} /> }
           />
-          <Route
-            path='/johari/:id'
-            render={({match}) =>
-              <Johari evaluateeID={match.params.id}  />
-            }
+          <Route path='/johari/:id'
+            render={({match}) => <Johari evaluateeID={match.params.id}  /> }
           />
           <PrivateRoute auth={auth} path='/mywindow' component={MyWindow} />
           <PrivateRoute auth={auth} path='/admin' component={Admin} />
