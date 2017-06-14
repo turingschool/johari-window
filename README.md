@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/turingschool/johari-window.png?label=ready&title=Ready)](https://waffle.io/turingschool/johari-window?utm_source=badge)
 # Johari Window App
 ## Quick overview
 
