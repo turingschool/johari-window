@@ -6,8 +6,6 @@ import * as actions from '../../Redux/actions'
 
 export default class AuthService extends EventEmitter {
   constructor(clientId, domain) {
-    console.log(window.location.origin)
-    console.log(process.env.NODE_ENV)
     super()
     this.lock = new Auth0Lock(clientId, domain, {
       auth: {
