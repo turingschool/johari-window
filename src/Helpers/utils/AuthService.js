@@ -7,9 +7,10 @@ import * as actions from '../../Redux/actions'
 export default class AuthService extends EventEmitter {
   constructor(clientId, domain) {
     super()
+    console.log("environment:", process.env.NODE_ENV)
     this.lock = new Auth0Lock(clientId, domain, {
       auth: {
-        redirectUrl: !process.env.NODE_ENV || process.env.NODE_ENV === "development" ? (
+        redirectUrl: process.env.NODE_ENV === "development" ? (
           'http://localhost:3000/login'
         ) : (
           'https://johariwindow.herokuapp.com/login'
