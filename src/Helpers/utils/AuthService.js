@@ -9,11 +9,7 @@ export default class AuthService extends EventEmitter {
     super()
     this.lock = new Auth0Lock(clientId, domain, {
       auth: {
-        redirectUrl: !process.env.NODE_ENV || process.env.NODE_ENV === "development" ? (
-          'http://localhost:3000/login'
-        ) : (
-          'https://johariwindow.herokuapp.com/login'
-        ),
+        redirectUrl: window.location.origin + "/login",
         responseType: 'token'
       }
     })
