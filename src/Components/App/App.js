@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import { PrivateRoute } from '../../Helpers/router'
+import { PrivateRoute, AdminRoute } from '../../Helpers/router'
 import Sidebar from './Sidebar/Sidebar'
 import Cohort from '../Cohort/CohortContainer'
 import Login from '../Login/LoginContainer'
@@ -46,14 +46,17 @@ class App extends Component {
             setAssignee={setAssignee}
             component={Main} 
           />
-          <Route path='/admin/cohort/:id'
-            render={({match}) => <Cohort cohortID={match.params.id} /> }
+          <AdminRoute 
+            path='/admin/cohort/:id'
+            user={user}
+            auth={auth}
+            component={Cohort}
           />
           <Route path='/johari/:id'
             render={({match}) => <Johari evaluateeID={match.params.id}  /> }
           />
           <PrivateRoute auth={auth} path='/mywindow' component={MyWindow} />
-          <PrivateRoute auth={auth} path='/admin' component={Admin} />
+          <AdminRoute user={user} auth={auth} path='/admin' component={Admin} />
           <Route path='/login' render={() => <Login auth={auth}/> } />
           <Route component={ NoMatch } />
         </Switch>
