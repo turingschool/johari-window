@@ -9,7 +9,6 @@ import thunk from 'redux-thunk'
 import App from './Components/App/AppContainer'
 import reducers from './Redux/reducers'
 import './app.css'
-import './_shared.sass'
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 const history = createHistory()

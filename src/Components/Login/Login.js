@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import AuthService from '../../Helpers/utils/AuthService'
-import './Login.css'
 
 const Login = ({ auth }) => (
   <div className='Login'>

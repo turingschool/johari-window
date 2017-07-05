@@ -70,7 +70,7 @@ class MyWindow extends Component {
               </tr>
               <tr>
                 <td className="johari-windowpane-title">
-                <h4>Fa&#231ade</h4>
+                <h4>Facade</h4>
                 { facadeAdjectiveList }</td>
                 <td className="johari-windowpane-title">
                   <h4>Unknown</h4>
