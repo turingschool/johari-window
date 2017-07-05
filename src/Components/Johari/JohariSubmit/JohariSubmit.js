@@ -28,9 +28,7 @@ class JohariSubmit extends Component {
 
   activeSubmit() {
     return (
-      <div className={'JohariSubmit active-submit'}>
-        <Link onClick={this.submit} to='/'>Submit</Link>
-      </div>
+        <Link onClick={this.submit} to='/' className={'JohariSubmit active-submit'}>Submit</Link>
     )
   }
 
