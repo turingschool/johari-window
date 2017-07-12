@@ -1,30 +1,29 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Assignee from './Assignee/Assignee'
 import './_assignee_list.sass'
 
-class AssigneeList extends Component {
+const AssigneeList = ({ assignees, setAssignee }) => {
+  const uniqNames = (acc, el) => (
+    acc.map(assignee => assignee.user.name)
+      .includes(el.user.name) ? acc : acc.concat(el)
+  )
 
-  eachAssignee(assignee, i) {
-    return this.props.assignees.map((assignee, i) => {
-      return (
-        <Assignee
-          key={i}
-          name={assignee.user.name}
-          id={assignee.user.id}
-          completed={assignee['completed?']} 
-          setAssignee={this.props.setAssignee}
-        />
-      )
-    })
-  }
+  const assigneeList = assignees.reduce(uniqNames, [])
+    .map((assignee, i) => (
+      <Assignee
+        key={i}
+        name={assignee.user.name}
+        id={assignee.user.id}
+        completed={assignee['completed?']} 
+        setAssignee={setAssignee}
+      />
+    ))
 
-  render() {
-    return (
-      <div className='AssigneeList'>
-        { this.eachAssignee() }
-      </div>
-    )
-  }
+  return (
+    <div className='AssigneeList'>
+      { assigneeList }
+    </div>
+  )
 }
 
 export default AssigneeList
