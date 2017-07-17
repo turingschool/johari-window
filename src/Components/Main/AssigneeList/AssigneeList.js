@@ -4,8 +4,8 @@ import './_assignee_list.sass'
 
 const AssigneeList = ({ assignees, setAssignee }) => {
   const uniqNames = (acc, el) => (
-    acc.map(assignee => assignee.user.name)
-      .includes(el.user.name) ? acc : acc.concat(el)
+    acc.map(assignee => assignee.user.id)
+      .includes(el.user.id) ? acc : acc.concat(el)
   )
 
   const assigneeList = assignees.reduce(uniqNames, [])
@@ -14,7 +14,7 @@ const AssigneeList = ({ assignees, setAssignee }) => {
         key={i}
         name={assignee.user.name}
         id={assignee.user.id}
-        completed={assignee['completed?']} 
+        completed={assignee['completed?']}
         setAssignee={setAssignee}
       />
     ))
