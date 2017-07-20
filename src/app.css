@@ -16,28 +16,25 @@ h1, p, h2, h3, h4 {
   font-weight: bold;
   border: 1px solid RGB(85, 114, 179);
   transition: 300ms; }
-
-.button:hover, .DeleteGroup:hover, .PostGroup:hover, .SubmitGroup:hover, .inactive-submit:hover, .active-submit:hover, .johari-cancel:hover {
-  transition: 300ms;
-  border: 1px solid RGB(20, 36, 72);
-  background-color: RGB(128, 171, 217);
-  color: RGB(20, 36, 72); }
+  .button:hover, .DeleteGroup:hover, .PostGroup:hover, .SubmitGroup:hover, .inactive-submit:hover, .active-submit:hover, .johari-cancel:hover {
+    transition: 300ms;
+    border: 1px solid RGB(20, 36, 72);
+    background-color: RGB(128, 171, 217);
+    color: RGB(20, 36, 72); }
 
 .Admin {
   position: absolute;
   left: 253px;
   padding: 20px; }
-
-.Admin a {
-  color: RGB(85, 114, 179);
-  text-decoration: none;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  display: block;
-  line-height: 24px;
-  font-size: 18px; }
-
-.Admin a:hover {
-  color: RGB(20, 36, 72); }
+  .Admin a {
+    color: RGB(85, 114, 179);
+    text-decoration: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: block;
+    line-height: 24px;
+    font-size: 18px; }
+  .Admin a:hover {
+    color: RGB(20, 36, 72); }
 
 .Sidebar {
   width: 250px;
@@ -45,33 +42,28 @@ h1, p, h2, h3, h4 {
   position: fixed;
   top: 0;
   bottom: 0; }
-
-.Sidebar h1 {
-  font-size: 24px;
-  margin: 20px;
-  text-shadow: RGBA(255, 255, 255, 0.7) 1px 1px 0; }
-
-.Sidebar .sidebar-user-info {
-  position: fixed;
-  bottom: 15px;
-  left: 20px; }
-
-.Sidebar .sidebar-user-info button:hover, .Sidebar .sidebar-user-info button:focus {
-  cursor: pointer; }
+  .Sidebar h1 {
+    font-size: 24px;
+    margin: 20px;
+    text-shadow: RGBA(255, 255, 255, 0.7) 1px 1px 0; }
+  .Sidebar .sidebar-user-info {
+    position: fixed;
+    bottom: 15px;
+    left: 20px; }
+    .Sidebar .sidebar-user-info button:hover, .Sidebar .sidebar-user-info button:focus {
+      cursor: pointer; }
 
 .Sidebar .sidebar-links {
   margin: 20px; }
-
-.Sidebar .sidebar-links a {
-  color: RGB(85, 114, 179);
-  text-decoration: none;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  display: block;
-  line-height: 24px;
-  font-size: 18px; }
-
-.Sidebar .sidebar-links a:hover {
-  color: RGB(20, 36, 72); }
+  .Sidebar .sidebar-links a {
+    color: RGB(85, 114, 179);
+    text-decoration: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: block;
+    line-height: 24px;
+    font-size: 18px; }
+  .Sidebar .sidebar-links a:hover {
+    color: RGB(20, 36, 72); }
 
 html {
   background-color: #efefef;
@@ -106,17 +98,15 @@ body {
   background-color: #fff;
   border-color: RGB(2, 94, 2);
   width: 140px; }
-
-.PostGroup a {
-  text-decoration: none;
-  color: RGB(2, 94, 2); }
+  .PostGroup a {
+    text-decoration: none;
+    color: RGB(2, 94, 2); }
 
 .PostGroup:hover {
   background-color: RGB(2, 94, 2);
   border-color: RGB(2, 94, 2); }
-
-.PostGroup:hover a {
-  color: #fff; }
+  .PostGroup:hover a {
+    color: #fff; }
 
 .GroupList {
   position: absolute;
@@ -148,11 +138,10 @@ input[type=checkbox]:checked + label {
   color: RGB(85, 114, 179);
   text-align: center;
   width: 100px; }
-
-.SubmitGroup:hover {
-  background-color: RGB(85, 114, 179);
-  cursor: pointer;
-  color: #fff; }
+  .SubmitGroup:hover {
+    background-color: RGB(85, 114, 179);
+    cursor: pointer;
+    color: #fff; }
 
 .StudentLineup {
   position: absolute;
@@ -190,17 +179,15 @@ input[type=checkbox]:checked + label {
 .active-submit {
   background-color: #fff;
   border-color: RGB(85, 114, 179); }
-
-.active-submit a {
-  text-decoration: none;
-  color: RGB(85, 114, 179); }
+  .active-submit a {
+    text-decoration: none;
+    color: RGB(85, 114, 179); }
 
 .active-submit:hover {
   background-color: RGB(85, 114, 179);
   border-color: RGB(85, 114, 179); }
-
-.active-submit:hover a {
-  color: #fff; }
+  .active-submit:hover a {
+    color: #fff; }
 
 .Johari {
   position: absolute;
@@ -228,14 +215,12 @@ input[type=checkbox]:checked + label {
 
 .Assignee.incomplete-assignee {
   line-height: 30px; }
-
-.Assignee.incomplete-assignee a {
-  text-decoration: none;
-  color: RGB(85, 114, 179); }
-
-.Assignee.incomplete-assignee a:hover {
-  color: RGB(20, 36, 72);
-  text-decoration: underline; }
+  .Assignee.incomplete-assignee a {
+    text-decoration: none;
+    color: RGB(85, 114, 179); }
+  .Assignee.incomplete-assignee a:hover {
+    color: RGB(20, 36, 72);
+    text-decoration: underline; }
 
 .Assignee.completed-assignee {
   color: RGB(128, 128, 128); }
@@ -273,19 +258,16 @@ a {
 
 .johari-window {
   background-color: #fff; }
-
-.johari-window table {
-  border-collapse: collapse; }
-
-.johari-window td {
-  height: 350px;
-  width: 350px;
-  border: 2px solid RGB(230, 230, 230); }
-
-.johari-window td.johari-windowpane-title {
-  vertical-align: top;
-  text-align: center;
-  color: RGB(102, 102, 102); }
+  .johari-window table {
+    border-collapse: collapse; }
+  .johari-window td {
+    height: 350px;
+    width: 350px;
+    border: 2px solid RGB(230, 230, 230); }
+  .johari-window td.johari-windowpane-title {
+    vertical-align: top;
+    text-align: center;
+    color: RGB(102, 102, 102); }
 
 .NoMatch {
   position: absolute;
