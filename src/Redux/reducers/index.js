@@ -2,38 +2,26 @@ import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 import * as types from '../types'
 
+const user = (state = {}, action) => (
+  action.type === types.ADD_USER ? { ...action.data } : state
+)
 
-const user = (state={}, action) => {
-  switch (action.type) {
-    case types.ADD_USER:
-      return { ...action.data };
-    default:
-      return state
-  }
-}
-const assignees = (state=[], action) => {
-  switch (action.type) {
-    case types.ADD_ASSIGNEES:
-      return [...action.data]
+const assignees = (state = [], action) => (
+  action.type === types.ADD_ASSIGNEES ? [ ...action.data ] : state
+)
 
-    default:
-      return state
-  }
-}
+const assignee = (state = {}, action) => (
+  action.type === types.SET_ASSIGNEE ? { ...action.data } : state
+)
 
-const assignee = (state={}, action) => {
-  switch (action.type) {
-    case types.SET_ASSIGNEE:
-      return { ...action.data }
-
-    default:
-      return state
-  }
-}
+const myWindow = (state = {}, action) => (
+  action.type === types.ADD_MY_WINDOW ? { ...action.data } : state
+)
 
 export default combineReducers({
-    user,
-    assignees,
-    assignee,
-    router: routerReducer
-  })
+  user,
+  assignees,
+  assignee,
+  myWindow,
+  router: routerReducer
+})

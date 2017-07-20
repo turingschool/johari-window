@@ -40,13 +40,13 @@ class App extends Component {
 
       <div className='Router'>
         <Switch>
-          <PrivateRoute 
-            auth={auth} 
-            exact path='/' 
+          <PrivateRoute
+            auth={auth}
+            exact path='/'
             setAssignee={setAssignee}
-            component={Main} 
+            component={Main}
           />
-          <AdminRoute 
+          <AdminRoute
             path='/admin/cohort/:id'
             user={user}
             auth={auth}
