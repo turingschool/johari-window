@@ -56,6 +56,9 @@ h1, p, h2, h3, h4 {
   bottom: 15px;
   left: 20px; }
 
+.Sidebar .sidebar-user-info button:hover, .Sidebar .sidebar-user-info button:focus {
+  cursor: pointer; }
+
 .Sidebar .sidebar-links {
   margin: 20px; }
 

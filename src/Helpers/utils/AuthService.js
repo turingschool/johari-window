@@ -15,6 +15,7 @@ export default class AuthService extends EventEmitter {
     })
     this.lock.on('authenticated', this._doAuthentication.bind(this))
     this.login = this.login.bind(this)
+    this.logout = this.logout.bind(this)
   }
 
   _doAuthentication(authResult) {
@@ -59,7 +60,7 @@ export default class AuthService extends EventEmitter {
 
   logout() {
     localStorage.removeItem('id_token')
-    localStorage.removeItem('profile')
-    localStorage.removeItem('user')
+    store.dispatch(actions.addUser({}))
+    store.dispatch(push('/'))
   }
 }

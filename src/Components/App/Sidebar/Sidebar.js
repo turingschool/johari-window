@@ -3,12 +3,16 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import './_sidebar.sass'
 
-const Sidebar = ({ user }) => {
+const Sidebar = ({ user, auth }) => {
   const loggedInAs = user.name
     ? `logged in as: ${user.name}`
     : "please log in"
 
   const admin = user.role === "staff" && (<Link to='/admin'>Admin</Link>)
+
+  const logout = (
+    <button onClick={auth.logout}>Logout</button>
+  )
 
   return (
     <div className='Sidebar'>
@@ -22,6 +26,7 @@ const Sidebar = ({ user }) => {
       </div>
       <div className='sidebar-user-info'>
         <p>{ loggedInAs }</p>
+        { auth.loggedIn() && logout }
       </div>
     </div>
   )

@@ -35,7 +35,7 @@ class App extends Component {
     return (
     <div>
       <div className='App'>
-        <Sidebar user={user} />
+        <Sidebar user={user} auth={auth} />
       </div>
 
       <div className='Router'>
