@@ -19,37 +19,24 @@ class MyWindow extends Component {
   }
 
   getMyWindow () {
-    fetch(`https://johariwindowapi.herokuapp.com/api/v1/users/${this.props.user.id}/descriptions`)
-      .then(result => result.json() )
-      .then(data => {
-
-        this.setState({
-          myWindow: {
-            arena: data['arena'],
-            facade: data['facade'],
-            blindSpot: data['blind-spot'],
-            unknown: data['unknown']
-          }}
-        )
-        return true
-      })
   }
 
   render() {
+    const { myWindow } = this.props
 
-    const arenaAdjectiveList = this.state.myWindow.arena.map((adjective, i) => {
+    const arenaAdjectiveList = myWindow.arena.map((adjective, i) => {
       return <MyWindowAdjective key={i} name={adjective.name} frequency={adjective.frequency} />
     })
 
-    const blindSpotAdjectiveList = this.state.myWindow.blindSpot.map((adjective, i) => {
+    const blindSpotAdjectiveList = myWindow.blindSpot.map((adjective, i) => {
       return <MyWindowAdjective key={i} name={adjective.name} frequency={adjective.frequency} />
     })
 
-    const facadeAdjectiveList = this.state.myWindow.facade.map((adjective, i) => {
+    const facadeAdjectiveList = myWindow.facade.map((adjective, i) => {
       return <MyWindowAdjective key={i} name={adjective.name} frequency={adjective.frequency} />
     })
 
-    const unKnownAdjectiveList = this.state.myWindow.unknown.map((adjective, i) => {
+    const unKnownAdjectiveList = myWindow.unknown.map((adjective, i) => {
       return <MyWindowAdjective key={i} name={adjective.name} frequency={adjective.frequency} />
     })
 
