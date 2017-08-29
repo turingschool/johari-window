@@ -31,6 +31,7 @@ class Johari extends Component {
   render() {
     const { assignee, user, evaluateeID } = this.props
     const { adjectives } = this.state
+    const counterColor = adjectives.length === 15 ? 'readyForSubmit' : 'notReady'
 
     return (
       <div className='Johari'>
@@ -38,7 +39,7 @@ class Johari extends Component {
           Evaluate { assignee.name }
         </h3>
         <p className='directions'>Select 15 that apply.</p>
-        <h3 className='selected-counter'>{ `${adjectives.length} / 15` }</h3>
+        <h3 className={`selected-counter ${counterColor}`}>{ `${adjectives.length} / 15` }</h3>
         <AdjectiveList toggleAdjective={ this.toggleAdjective }/>
         <div className='johari-buttons'>
           <JohariSubmit adjectives={ adjectives } user={ user }
