@@ -219,10 +219,22 @@ input[type=checkbox]:checked + label {
   border-color: RGB(219, 69, 69); }
 
 .selected-counter {
-  color: RGB(219, 69, 69);
   position: fixed;
   top: 30px;
-  right: 60px; }
+  right: 60px;
+  font-size: 1.5em;
+  height: 100px;
+  border-radius: 50%;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.readyForSubmit {
+  background-color: #00FF82; }
+
+.notReady {
+  background-color: #FF9082; }
 
 .Login {
   position: absolute;
