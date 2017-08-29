@@ -29,17 +29,20 @@ class Johari extends Component {
   }
 
   render() {
-    const { assignee } = this.props
+    const { assignee, user, evaluateeID } = this.props
+    const { adjectives } = this.state
+
     return (
       <div className='Johari'>
         <h3 className='johari-title'>
           Evaluate { assignee.name }
         </h3>
         <p className='directions'>Select 15 that apply.</p>
-        <AdjectiveList toggleAdjective={this.toggleAdjective}/>
+        <h3 className='selected-counter'>{ `${adjectives.length} / 15` }</h3>
+        <AdjectiveList toggleAdjective={ this.toggleAdjective }/>
         <div className='johari-buttons'>
-          <JohariSubmit adjectives={this.state.adjectives} user={ this.props.user }
-          ready={this.readyToSubmit} evaluateeID={this.props.evaluateeID}/>
+          <JohariSubmit adjectives={ adjectives } user={ user }
+          ready={ this.readyToSubmit } evaluateeID={ evaluateeID }/>
           <Link to='/' className='johari-cancel' >Cancel</Link>
         </div>
       </div>
