@@ -31,7 +31,7 @@ export default class AuthService extends EventEmitter {
       } else {
         const user_info = {
           "user": {
-            "name": profile.name,
+            "name": profile.name || "NO_NAME",
             "github": profile.nickname,
             "token": token
           }
