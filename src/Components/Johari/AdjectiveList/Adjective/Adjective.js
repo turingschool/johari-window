@@ -9,7 +9,7 @@ class Adjective extends Component {
   }
 
   toggleAdjective() {
-    this.props.toggleAdjective(this.props.name)
+    this.props.actions.toggleAdjective(this.props.name)
   }
 
   render() {

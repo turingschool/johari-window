@@ -3,47 +3,55 @@ import { Link } from 'react-router-dom'
 import './_johari_submit.sass'
 
 class JohariSubmit extends Component {
-  constructor(props) {
-    super(props)
+	constructor(props) {
+		super(props)
 
-    this.activeSubmit = this.activeSubmit.bind(this)
-    this.inactiveSubmit = this.inactiveSubmit.bind(this)
-    this.submit = this.submit.bind(this)
-  }
+		this.activeSubmit = this.activeSubmit.bind(this)
+		this.inactiveSubmit = this.inactiveSubmit.bind(this)
+		this.submit = this.submit.bind(this)
+	}
 
-  submit() {
-    fetch(`https://johariwindowapi.herokuapp.com/api/v1/users/${this.props.evaluateeID}/descriptions`, {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        johari: this.props.adjectives,
-        describer_id: this.props.user.id,
-      })
-    })
-    .then(data => true)
-  }
+	submit() {
+		const { evaluateeID, adjectives, user } = this.props
 
-  activeSubmit() {
-    return (
-        <Link onClick={this.submit} to='/' className={'JohariSubmit active-submit'}>Submit</Link>
-    )
-  }
+		fetch(`https://johariwindowapi.herokuapp.com/api/v1/users/${evaluateeID}/descriptions`, {
+			method: 'POST',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				johari: adjectives,
+				describer_id: user.id,
+			})
+		})
+			.then(data => {
+				const { evaluateeID: id, actions } = this.props
+				actions.completeAssignee(id)
+				return true
+			})
+	}
 
-  inactiveSubmit() {
-    return (
-      <div className={'JohariSubmit inactive-submit'}>
-        <a>Submit</a>
-      </div>
-    )
-  }
+	activeSubmit() {
+		return (
+			<Link onClick={this.submit} to='/' className={'JohariSubmit active-submit'}>Submit</Link>
+		)
+	}
 
-  render() {
-    if (this.props.ready()) { return this.activeSubmit() }
-    else { return this.inactiveSubmit() }
-  }
+	inactiveSubmit() {
+		return (
+			<div className={'JohariSubmit inactive-submit'}>
+				<a>Submit</a>
+			</div>
+		)
+	}
+
+	render() {
+		const button = this.props.adjectives.length === 15
+			? this.activeSubmit()
+			: this.inactiveSubmit()
+		return button
+	}
 }
 
 export default JohariSubmit

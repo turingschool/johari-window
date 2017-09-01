@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Adjective from './Adjective/Adjective'
+import Adjective from './Adjective/AdjectiveContainer'
 import './_adjective_list.sass'
 
 class AdjectiveList extends Component {
@@ -7,7 +7,6 @@ class AdjectiveList extends Component {
     super()
     this.state = { adjectives: [] }
 
-    this.toggleAdjective = this.toggleAdjective.bind(this)
     this.eachAdjective = this.eachAdjective.bind(this)
   }
 
@@ -24,20 +23,16 @@ class AdjectiveList extends Component {
   retrieveAdjectives() {
     var that = this
     fetch('https://johariwindowapi.herokuapp.com/api/v1/adjectives')
-        .then(result => result.json())
-        .then(data => {
-          that.setState({ adjectives: data })
-          localStorage.setItem('adjectives', data)
-          return true
-        })    
-  }
-
-  toggleAdjective(adjective) {
-    this.props.toggleAdjective(adjective)
+      .then(result => result.json())
+      .then(data => {
+        that.setState({ adjectives: data })
+        localStorage.setItem('adjectives', data)
+        return true
+      })    
   }
 
   eachAdjective(name, i) {
-    return <Adjective key={i} name={name} toggleAdjective={this.toggleAdjective} />
+    return <Adjective key={i} name={name} />
   }
 
   render() {
