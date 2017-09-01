@@ -25,6 +25,8 @@ class App extends Component {
   componentWillMount() {
     if (auth.loggedIn) {
       auth.setProfile()
+    } else {
+      auth.logout()
     }
   }
 

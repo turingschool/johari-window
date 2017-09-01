@@ -1,5 +1,6 @@
 import Auth0Lock from 'auth0-lock'
 import { EventEmitter } from 'events'
+import { isTokenExpired } from './jwtHelper'
 import { store } from '../../index.js'
 import { push } from 'react-router-redux'
 import * as actions from '../../Redux/actions'
@@ -47,7 +48,8 @@ export default class AuthService extends EventEmitter {
   }
 
   loggedIn() {
-    return !!this.getToken()
+    const token = this.getToken()
+    return !!token && !isTokenExpired(token)
   }
 
   setToken(idToken) {
