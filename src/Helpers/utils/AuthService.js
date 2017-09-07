@@ -30,15 +30,19 @@ export default class AuthService extends EventEmitter {
       if (error) {
         console.log('Error loading the Profile', error)
       } else {
-        const user_info = {
-          "user": {
-            "name": profile.name || "NO_NAME",
-            "github": profile.nickname,
-            "token": token
-          }
-        };
-        store.dispatch(push('/'))
-        store.dispatch(actions.fetchUser(user_info))
+        if (!profile.name) {
+          alert("Whoops! You haven't filled out your 'Name' field on your GitHub profile. Go update that, and try logging in again 👍.")
+        } else {
+          const user_info = {
+            "user": {
+              "name": profile.name || "NO_NAME",
+              "github": profile.nickname,
+              "token": token
+            }
+          };
+          store.dispatch(push('/'))
+          store.dispatch(actions.fetchUser(user_info))
+        }
       }
     })
   }
