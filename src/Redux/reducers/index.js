@@ -21,7 +21,7 @@ const completeAssignee = (state, id) => {
 	return [ completed, ...others ]
 }
 
-const assignees = (state = [], action) => {
+const assignees = (state = ["loading"], action) => {
 	switch(action.type) {
 		case types.ADD_ASSIGNEES:
 			return [...action.data]

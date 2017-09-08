@@ -1,75 +1,66 @@
-import React, { Component } from 'react'
+import React from 'react'
+import ReactLoading from 'react-loading'
 import './_my_window.sass'
 import MyWindowAdjective from './MyWindowAdjective/MyWindowAdjective'
 
-class MyWindow extends Component {
-  constructor() {
-    super()
-    this.state = { myWindow: {
-      arena: [],
-      facade: [],
-      blindSpot: [],
-      unknown: []
-    } }
-    this.getMyWindow = this.getMyWindow.bind(this)
-  }
+const MyWindow = ({ myWindow }) => {
+  const loader = (
+    <ReactLoading type="bars" color="#444" />
+  )
 
-  componentDidMount() {
-    this.getMyWindow()
-  }
+  const panes = [
+    { name: "Arena", property: "arena" },
+    { name: "Blind Spot", property: "blindSpot" },
+    { name: "Facade", property: "facade" },
+    { name: "Unknown", property: "unknown" },
+  ]
 
-  getMyWindow () {
-  }
+  const makeMyWindowAdjectives = property => (
+    myWindow[property].map((adjective, i) => (
+      <MyWindowAdjective
+        key={i}
+        name={adjective.name}
+        frequency={adjective.frequency} 
+      />
+    ))
+  )
 
-  render() {
-    const { myWindow } = this.props
+  const panesJsx = () => (
+    panes.map(pane =>(
+      <td key={pane.name} className="johari-windowpane-title">
+        <h4>{ pane.name }</h4>
+        { makeMyWindowAdjectives(pane.property) }
+      </td>
+    ))
+  )
 
-    const arenaAdjectiveList = myWindow.arena.map((adjective, i) => {
-      return <MyWindowAdjective key={i} name={adjective.name} frequency={adjective.frequency} />
-    })
+  const firstRow = () => panesJsx().slice(0,2)
+  const secondRow = () => panesJsx().slice(2)
 
-    const blindSpotAdjectiveList = myWindow.blindSpot.map((adjective, i) => {
-      return <MyWindowAdjective key={i} name={adjective.name} frequency={adjective.frequency} />
-    })
+  const johari = () => (
+    <div className='johari-window'>
+      <table>
+        <tbody>
+          <tr>
+            { firstRow() }
+          </tr>
+          <tr>
+            { secondRow() }
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  )
 
-    const facadeAdjectiveList = myWindow.facade.map((adjective, i) => {
-      return <MyWindowAdjective key={i} name={adjective.name} frequency={adjective.frequency} />
-    })
+  const body = !myWindow.arena ? loader : johari()
 
-    const unKnownAdjectiveList = myWindow.unknown.map((adjective, i) => {
-      return <MyWindowAdjective key={i} name={adjective.name} frequency={adjective.frequency} />
-    })
-
-    return (
-      <div className='MyWindow'>
-        <h2>My Window</h2>
-        <div className='johari-window'>
-          <table>
-            <tbody>
-              <tr>
-                <td className="johari-windowpane-title">
-                <h4>Arena</h4>
-                { arenaAdjectiveList }
-                </td>
-                <td className="johari-windowpane-title">
-                <h4>Blind Spot</h4>
-                { blindSpotAdjectiveList }</td>
-              </tr>
-              <tr>
-                <td className="johari-windowpane-title">
-                <h4>Facade</h4>
-                { facadeAdjectiveList }</td>
-                <td className="johari-windowpane-title">
-                  <h4>Unknown</h4>
-                  { unKnownAdjectiveList }
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    )
-  }
+  return (
+    <div className='MyWindow'>
+      <h2>My Window</h2>
+      { body }
+    </div>
+  )
 }
 
 export default MyWindow
+
